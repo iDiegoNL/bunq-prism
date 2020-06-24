@@ -39,6 +39,9 @@ const apolloProvider = new VueApollo({
     defaultClient: client,
 })
 
+const infiniteScroll = require('vue-infinite-scroll');
+Vue.use(infiniteScroll);
+
 new Vue({
     router,
     apolloProvider,

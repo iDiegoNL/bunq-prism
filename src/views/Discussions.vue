@@ -74,6 +74,7 @@
                 </div>
             </div>
         </div>
+        <div v-infinite-scroll="loadMore" infinite-scroll-disabled="busy" infinite-scroll-distance="1000"></div>
     </div>
 </template>
 
@@ -84,28 +85,63 @@
         name: 'Discussions',
 
         apollo: {
-            discussions: gql`
-                query {
-                    discussions {
-                        total
-                        done
-                        items {
-                            title
-                            startTimestamp
-                            removed
-                            user {
-                                username
-                                displayName
-                                avatarUrl
+            discussions() {
+                // This is called once when the component is created
+                // It must return the option object
+                return {
+                    // gql query
+                    query: gql`
+                        query Discussions($skip: Float!, $take: Float!) {
+                            discussions (pagination: { skip: $skip, take: $take })  {
+                                total
+                                done
+                                items {
+                                    id
+                                    title
+                                    startTimestamp
+                                    removed
+                                    user {
+                                        username
+                                        displayName
+                                        avatarUrl
+                                    }
+                                }
                             }
+                        }`,
+                    variables() {
+                        return {
+                            take: this.take,
+                            skip: this.skip,
                         }
                     }
-                }`,
+                }
+            },
+        },
+
+        methods: {
+            loadMore: function () {
+                this.busy = true;
+
+                setTimeout(() => {
+                    let i = 0, j = 10;
+                    for (; i < j; i++) {
+                        this.take++;
+                        this.skip++;
+                    }
+                    this.busy = false;
+                }, 1000);
+
+                console.log('Take: ' + this.take);
+                console.log('Skip: ' + this.skip);
+            }
         },
 
         data() {
             return {
                 discussions: {},
+                busy: true,
+                take: 10,
+                skip: 0,
             }
         }
     }
