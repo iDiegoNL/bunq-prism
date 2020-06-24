@@ -30,10 +30,7 @@
 
         apollo: {
             discussion() {
-                // This is called once when the component is created
-                // It must return the option object
                 return {
-                    // gql query
                     query: gql`
                         query Discussion($id: Float!) {
                             discussion (id: $id)  {
