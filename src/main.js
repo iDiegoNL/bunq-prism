@@ -11,6 +11,8 @@ import { InMemoryCache } from "apollo-cache-inmemory";
 
 Vue.use(VueApollo);
 
+Vue.use(require('vue-moment'));
+
 Vue.config.productionTip = false
 
 const getHeaders = () => {

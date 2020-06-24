@@ -15,8 +15,8 @@
                 </div>
             </div>
             <div class="flex justify-between items-center mt-6">
-                <!-- TODO: Fix timestamp -->
-                <span class="font-light text-gray-600">{{ post.timestamp }} (timestamp)</span>
+                <!-- TODO: Display tooltip with exact date on hover -->
+                <span class="font-light text-gray-600">{{ post.timestamp | moment("from") }}</span>
             </div>
         </div>
     </div>
