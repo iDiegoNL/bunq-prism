@@ -87,10 +87,7 @@
 
         apollo: {
             discussions() {
-                // This is called once when the component is created
-                // It must return the option object
                 return {
-                    // gql query
                     query: gql`
                         query Discussions($skip: Float!, $take: Float!) {
                             discussions (pagination: { skip: $skip, take: $take })  {
