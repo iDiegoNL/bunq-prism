@@ -49,9 +49,10 @@
                                 </div>
                             </td>
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                                <div class="text-sm leading-5 text-gray-900">
+                                <router-link class="text-sm leading-5 text-gray-900"
+                                             :to="{ name: 'Discussions.show', params: { discussion_id: item.id } }">
                                     {{ item.title }}
-                                </div>
+                                </router-link>
                             </td>
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
                                 <div class="text-sm leading-5 text-gray-900">

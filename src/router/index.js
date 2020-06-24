@@ -10,6 +10,11 @@ const routes = [
         component: () => import('../views/Discussions.vue')
     },
     {
+        path: '/discussion/:discussion_id',
+        name: 'Discussions.show',
+        component: () => import('../views/Discussion/Show.vue')
+    },
+    {
         path: '/posts',
         name: 'Posts',
         component: () => import('../views/Posts.vue')
