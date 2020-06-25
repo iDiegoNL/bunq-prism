@@ -90,7 +90,7 @@
                 return {
                     query: gql`
                         query Discussions($skip: Float!, $take: Float!) {
-                            discussions (pagination: { skip: $skip, take: $take })  {
+                            discussions (pagination: { skip: $skip, take: $take } order: "DESC")  {
                                 total
                                 done
                                 items {
