@@ -56,7 +56,7 @@
                             </td>
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
                                 <div class="text-sm leading-5 text-gray-900">
-                                    {{ item.startTimestamp }}
+                                    {{ new Date(item.startTimestamp * 1000).toLocaleString() }}
                                 </div>
                             </td>
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
