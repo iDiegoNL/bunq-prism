@@ -8,10 +8,13 @@ import VueApollo from "vue-apollo";
 import ApolloClient from "apollo-client";
 import { HttpLink } from "apollo-link-http";
 import { InMemoryCache } from "apollo-cache-inmemory";
+import VTooltip from 'v-tooltip';
 
 Vue.use(VueApollo);
 
 Vue.use(require('vue-moment'));
+
+Vue.use(VTooltip);
 
 Vue.config.productionTip = false
 
