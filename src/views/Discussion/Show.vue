@@ -1,5 +1,5 @@
 <template>
-    <Layout :title="discussion.title">
+    <Layout :title="discussion.title" :deleted-discussion="discussion.removed">
         <div class="px-10 my-4 py-6 bg-white rounded-lg shadow-md" v-for="post in discussion.posts"
              v-bind:key="post.id">
             <div class="flex justify-between items-center mt-4">
@@ -30,6 +30,7 @@
         query Discussion($id: Float!) {
             discussion (id: $id)  {
                 title
+                removed
                 posts {
                     contentHtml
                     removed
