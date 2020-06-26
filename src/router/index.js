@@ -10,7 +10,7 @@ const routes = [
         component: () => import('../views/Discussions.vue')
     },
     {
-        path: '/discussion/:discussion_id',
+        path: '/discussion/:id',
         name: 'Discussions.show',
         component: () => import('../views/Discussion/Show.vue')
     },

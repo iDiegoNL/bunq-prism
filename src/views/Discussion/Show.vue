@@ -25,32 +25,33 @@
 <script>
     import gql from "graphql-tag";
 
+    export const DiscussionQuery = gql`
+        query Discussion($id: Float!) {
+            discussion (id: $id)  {
+                title
+                posts {
+                    contentHtml
+                    removed
+                    timestamp
+                    user {
+                        username
+                        displayName
+                        avatarUrl
+                    }
+                }
+            }
+        }`
+
     export default {
         name: "DiscussionShow",
 
         apollo: {
             discussion() {
                 return {
-                    query: gql`
-                        query Discussion($id: Float!) {
-                            discussion (id: $id)  {
-                                title
-                                posts {
-                                    contentHtml
-                                    removed
-                                    timestamp
-                                    user {
-                                        username
-                                        displayName
-                                        avatarUrl
-                                    }
-                                }
-                            }
-                        }`,
+                    query: DiscussionQuery,
                     variables() {
                         return {
-                            // TODO: When you manually refresh the page right now, you get an error. Probably because Apollo makes the request before te route param from below is available.
-                            id: this.$route.params.discussion_id,
+                            id: this.discussionId,
                         }
                     }
                 }
@@ -60,6 +61,7 @@
         data() {
             return {
                 discussion: {},
+                discussionId: parseInt(this.$route.params.id),
             }
         }
     }
