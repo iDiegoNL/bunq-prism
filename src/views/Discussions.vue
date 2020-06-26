@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <Layout title="Discussions">
         <!-- TODO: Make this a component -->
         <section class="bg-indigo-dark h-50 p-8">
             <div class="container mx-auto py-8">
@@ -76,14 +76,19 @@
             </div>
         </div>
         <div v-infinite-scroll="loadMore" infinite-scroll-disabled="busy" infinite-scroll-distance="1000"></div>
-    </div>
+    </Layout>
 </template>
 
 <script>
     import gql from 'graphql-tag'
+    import Layout from "../components/PageLayout";
 
     export default {
         name: 'Discussions',
+
+        components: {
+            Layout
+        },
 
         apollo: {
             discussions() {
