@@ -41,8 +41,7 @@
                 type: String,
             },
             deletedDiscussion: {
-                type: Number,
-                default: 0,
+                default: null,
             },
         }
     }
